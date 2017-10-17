@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Умняшка Любашенька</string>
+    <string name="question_text">
+        Любаша, действительно ли на Земле 5 океанов?
+    </string>
+    <string name="true_button" >Да</string>
+    <string name="false_button" >Нет</string>
+    <string name="correct_toast" >Правильно, умница!</string>
+    <string name="incorrect_toast" >Неправильно, иди учи уроки!</string>
+</resources>
