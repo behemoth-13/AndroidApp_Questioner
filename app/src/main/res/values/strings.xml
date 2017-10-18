@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name">Умняшка Любашенька</string>
-    <string name="question_text">
-        Любаша, действительно ли на Земле 5 океанов?
+    
+    <string name="question_oceans">
+        Действительно ли на Земле 5 океанов?
+    </string>
+    <string name="question_element">
+        Первым элементом таблицы Менделеева является водород?
+    </string>
+    <string name="question_tree">
+        Жевачку делают из жевачного дерева?
+    </string>
+    <string name="question_water">
+        Поверхность Земли покрыта водой на 80%?
     </string>
     <string name="true_button" >Да</string>
     <string name="false_button" >Нет</string>
     <string name="correct_toast" >Правильно, умница!</string>
     <string name="incorrect_toast" >Неправильно, иди учи уроки!</string>
+    <string name="next_button" >Дальше</string>
 </resources>
