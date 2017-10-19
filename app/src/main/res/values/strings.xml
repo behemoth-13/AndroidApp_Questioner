@@ -18,4 +18,5 @@
     <string name="correct_toast" >Правильно, умница!</string>
     <string name="incorrect_toast" >Неправильно, иди учи уроки!</string>
     <string name="next_button" >Дальше</string>
+    <string name="prev_button" >Назад</string>
 </resources>
