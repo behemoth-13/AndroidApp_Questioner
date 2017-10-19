@@ -15,10 +15,10 @@ public class QuizActivity extends AppCompatActivity {
     private TextView mQuestionTextView;
 
     private Question[] mQuestionBank = new Question[] {
-        new Question(R.string.question_oceans, true),
+        new Question(R.string.question_oceans, false),
         new Question(R.string.question_element, true),
         new Question(R.string.question_tree, true),
-        new Question(R.string.question_water, true),
+        new Question(R.string.question_water, false),
     };
 
     private int mCurrentIndex = 0;
