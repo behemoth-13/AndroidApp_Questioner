@@ -8,7 +8,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:padding="24dp" />
+        android:padding="24dp"
+        android:layout_marginTop="35dp" />
 
 
     <LinearLayout
@@ -31,17 +32,26 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="42dp"
+        android:text="@string/cheat_button"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="85dp"
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/prev_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_left"
+            android:padding="14dp"
             android:contentDescription="@string/prev_button"/>
 
         <ImageButton
@@ -49,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_right"
+            android:padding="14dp"
             android:contentDescription="@string/next_button"/>
 
     </LinearLayout>

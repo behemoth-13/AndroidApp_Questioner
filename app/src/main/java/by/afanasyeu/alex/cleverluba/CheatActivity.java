@@ -14,8 +14,10 @@ public class CheatActivity extends AppCompatActivity {
             "by.afanasyeu.alex.cleverluba.answer_is_true";
     private static final String EXTRA_ANSWER_SHOWN =
             "by.afanasyeu.alex.cleverluba.answer_shown";
+    private static final String KEY_ANSWER_IS_TRUE = "mAnswerIsTrue";
 
     private boolean mAnswerIsTrue;
+    private boolean mIsAnswerShown;
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
@@ -38,9 +40,28 @@ public class CheatActivity extends AppCompatActivity {
                 } else {
                     mAnswerTextView.setText(R.string.false_button);
                 }
-                setAnswerShownResult(true);
+                mIsAnswerShown = true;
+                setAnswerShownResult(mIsAnswerShown);
             }
         });
+
+        if (savedInstanceState != null) {
+            mIsAnswerShown = savedInstanceState.getBoolean(KEY_ANSWER_IS_TRUE);
+            if (mIsAnswerShown) {
+                if (mAnswerIsTrue) {
+                    mAnswerTextView.setText(R.string.true_button);
+                } else {
+                    mAnswerTextView.setText(R.string.false_button);
+                }
+                setAnswerShownResult(mIsAnswerShown);
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_ANSWER_IS_TRUE, mIsAnswerShown);
     }
 
     public static Intent newIntent(Context packageContext, boolean answerIsTrue) {
