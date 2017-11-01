@@ -11,11 +11,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     private static final String KEY_IS_CHEATER = "mIsCheater";
+    private static final String KEY_CHEAT_QUESTIONS = "mCheatQuestions";
     private static final int REQUEST_CODE_CHEAT = 0;
 
     private Button mTrueButton;
@@ -34,6 +38,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private int mCurrentIndex = 0;
     private boolean mIsCheater;
+    private Set<Integer> mCheatQuestions = new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +104,7 @@ public class QuizActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
             mIsCheater = savedInstanceState.getBoolean(KEY_IS_CHEATER, false);
+            mCheatQuestions = toSet(savedInstanceState.getIntArray(KEY_CHEAT_QUESTIONS));
         }
 
         updateQuestion();
@@ -110,6 +116,7 @@ public class QuizActivity extends AppCompatActivity {
         Log.i(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIndex);
         outState.putBoolean(KEY_IS_CHEATER, mIsCheater);
+        outState.putIntArray(KEY_CHEAT_QUESTIONS, toInt(mCheatQuestions));
     }
 
     @Override
@@ -123,6 +130,9 @@ public class QuizActivity extends AppCompatActivity {
                 return;
             }
             mIsCheater = CheatActivity.wasAnswerShown(data);
+            if (mIsCheater) {
+                mCheatQuestions.add(mCurrentIndex);
+            }
         }
     }
 
@@ -136,7 +146,7 @@ public class QuizActivity extends AppCompatActivity {
 
         int messageResId;
 
-        if (mIsCheater) {
+        if (mIsCheater || mCheatQuestions.contains(mCurrentIndex)) {
             messageResId = R.string.judgment_toast;
         } else {
 
@@ -155,6 +165,21 @@ public class QuizActivity extends AppCompatActivity {
         }
         mIsCheater = false;
         updateQuestion();
+    }
+
+    private int[] toInt(Set<Integer> set) {
+        int[] a = new int[set.size()];
+        int i = 0;
+        for (Integer val : set) a[i++] = val;
+        return a;
+    }
+
+    private Set<Integer> toSet(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        for (int i : arr) {
+            set.add(i);
+        }
+        return set;
     }
 
     @Override
