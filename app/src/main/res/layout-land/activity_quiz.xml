@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_left"
-            android:padding="14dp"
+            android:padding="17dp"
             android:contentDescription="@string/prev_button"/>
 
         <ImageButton
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_right"
-            android:padding="14dp"
+            android:padding="17dp"
             android:contentDescription="@string/next_button"/>
 
     </LinearLayout>
